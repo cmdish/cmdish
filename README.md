@@ -9,6 +9,5 @@ $ npm install
 
 ### Usage
 ```shell
-$ npm install
 $ npm start
 ```
