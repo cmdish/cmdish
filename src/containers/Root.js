@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { observer } from 'mobx-react';
-import DevTools from 'mobx-react-devtools';
+import React, { Component } from "react";
+import { observer } from "mobx-react";
+import DevTools from "mobx-react-devtools";
 
 @observer
 class Root extends Component {
