@@ -1,9 +1,9 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { AppContainer } from "react-hot-loader"
+import React from "react";
+import ReactDOM from "react-dom";
+import { AppContainer } from "react-hot-loader";
 import { Provider } from "mobx-react";
 
-import Root from "./containers/Root"
+import Root from "./containers/Root";
 import stores from "./stores";
 
 const render = () => {
@@ -20,5 +20,5 @@ const render = () => {
 render();
 
 if (module.hot) {
-    module.hot.accept("./containers/Root", render)
+    module.hot.accept("./containers/Root", render);
 }
