@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { observer } from "mobx-react";
+import { observer, inject } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 
-@observer
+@inject("appStore") @observer
 class Root extends Component {
     render() {
         return (
             <div>
                 <button onClick={this.onReset}>
-                    Seconds passed: {this.props.appState.timer}
+                    Seconds passed: {this.props.appStore.timer}
                 </button>
                 <DevTools />
             </div>
@@ -16,7 +16,7 @@ class Root extends Component {
     }
 
     onReset = () => {
-        this.props.appState.resetTimer();
+        this.props.appStore.resetTimer();
     }
 }
 

@@ -1,6 +1,6 @@
 import { observable } from "mobx";
 
-class AppState {
+class AppStore {
     @observable timer = 0;
 
     constructor() {
@@ -14,4 +14,4 @@ class AppState {
     }
 }
 
-export default AppState;
+export default new AppStore();

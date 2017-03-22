@@ -1,17 +1,17 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { AppContainer } from "react-hot-loader"
+import { Provider } from "mobx-react";
 
 import Root from "./containers/Root"
-
-import AppState from "./AppState";
-
-const appState = new AppState();
+import stores from "./stores";
 
 const render = () => {
     ReactDOM.render(
         <AppContainer>
-            <Root appState={appState}/>
+            <Provider { ...stores }>
+                <Root />
+            </Provider>
         </AppContainer>,
         document.getElementById("root")
     );
