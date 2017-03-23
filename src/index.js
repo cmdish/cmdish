@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "mobx-react";
 
-import Root from "./containers/Root";
+import App from "./containers/App";
 import stores from "./stores";
 
 const render = () => {
     ReactDOM.render(
         <AppContainer>
             <Provider { ...stores }>
-                <Root />
+                <App />
             </Provider>
         </AppContainer>,
         document.getElementById("root")
@@ -20,5 +20,5 @@ const render = () => {
 render();
 
 if (module.hot) {
-    module.hot.accept("./containers/Root", render);
+    module.hot.accept("./containers/App", render);
 }

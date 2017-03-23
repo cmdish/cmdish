@@ -3,7 +3,7 @@ import { observer, inject } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 
 @inject("appStore") @observer
-class Root extends Component {
+class App extends Component {
     render() {
         return (
             <div>
@@ -20,4 +20,4 @@ class Root extends Component {
     }
 }
 
-export default Root;
+export default App;
