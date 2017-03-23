@@ -3,3 +3,4 @@
 node_modules
 .history
 jsconfig.json
+_dist

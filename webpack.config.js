@@ -1,17 +1,21 @@
 const webpack = require("webpack");
 const path = require("path");
 
+const ProgressBarPlugin = require("progress-bar-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
     devtool: "source-map",
     entry: {
-        "app": [
+        app: [
             "babel-polyfill",
             "react-hot-loader/patch",
             "./src/index"
         ]
     },
     output: {
-        path: path.resolve(__dirname, "/dist"),
+        path: path.resolve("./_dist"),
         filename: "[name].js"
     },
     module: {
@@ -20,7 +24,30 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: {
+                        loader: "css-loader",
+                        options: {
+                            minimize: true
+                        }
+                    }
+                })
             }
         ]
-    }
+    },
+    plugins: [
+        new ProgressBarPlugin(),
+        new webpack.SourceMapDevToolPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
+        new ExtractTextPlugin("style.css"),
+        new HtmlWebpackPlugin({
+            title: "cmdish",
+            template: "index.ejs",
+            hash: true
+        })
+    ]
 }
