@@ -12,6 +12,8 @@
     "stage-1"
   ],
   "plugins": [
+    "transform-regenerator",
+    "mobx-deep-action",
     "transform-decorators-legacy",
     "react-hot-loader/babel"
   ]

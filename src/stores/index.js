@@ -1,5 +1,5 @@
-import appStore from "./appStore";
+import store from "./Store";
 
 export default {
-    appStore
+    store
 };

@@ -1,23 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 import { observer, inject } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 
-@inject("appStore") @observer
-class App extends Component {
+import CommandInput from "./CommandInput";
+import StatusBar from "./StatusBar";
+import Buffer from "./Buffer";
+
+import SC from "soundcloud";
+
+SC.initialize({
+    client_id: "%TOKEN%"
+});
+
+@inject("store") @observer
+export default class App extends React.Component {
+    constructor(...props) {
+        super(...props);
+    }
+
     render() {
         return (
-            <div>
-                <button onClick={this.onReset}>
-                    Seconds passed: {this.props.appStore.timer}
-                </button>
+            <main>
+                <StatusBar />
+                <Buffer />
+                <CommandInput />
                 <DevTools />
-            </div>
+            </main>
         );
     }
-
-    onReset = () => {
-        this.props.appStore.resetTimer();
-    }
 }
-
-export default App;

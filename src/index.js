@@ -21,7 +21,7 @@ const render = () => {
 };
 
 render();
-
+ 
 if (module.hot) {
     module.hot.accept("./containers/App", render);
 }
