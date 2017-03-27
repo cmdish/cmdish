@@ -9,7 +9,7 @@ import Buffer from "./Buffer";
 import SC from "soundcloud";
 
 SC.initialize({
-    client_id: "%TOKEN%"
+    client_id: process.env.SOUNDCLOUD_TOKEN
 });
 
 @inject("store") @observer

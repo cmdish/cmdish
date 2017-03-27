@@ -4,6 +4,7 @@ const path = require("path");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const DotenvPlugin = require("webpack-dotenv-plugin");
 
 module.exports = {
     devtool: "source-map",
@@ -42,7 +43,11 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin(),
         new webpack.SourceMapDevToolPlugin(),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin()
+        new DotenvPlugin({
+            path: "./.env",
+            sample: "./.env.example"
+        }),
         new ExtractTextPlugin("style.css"),
         new HtmlWebpackPlugin({
             title: "cmdish",
