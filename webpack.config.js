@@ -43,7 +43,7 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin(),
         new webpack.SourceMapDevToolPlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
         new DotenvPlugin({
             path: "./.env",
             sample: "./.env.example"
