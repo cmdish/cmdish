@@ -1,16 +1,14 @@
 /* rules missing in yui3 reset */
 figure { margin:0; }
 
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+
+/*---[ base ]-----------------------------------------------------------------------*/
+*,
+*:before,
+*:after { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-overflow-scrolling:touch; }
+*:focus { outline:none; }
+::-moz-focus-inner { border:0; padding:0; }
+
 html, body { height:100%; }
 #root { height:100%; }
-
-main { height:100%; display:flex; flex-direction:column; }
-    main > * { overflow:hidden; flex:0 0 auto; }
-
-    main > .status-bar {}
-
-    main > .buffer { flex:1; overflow-y:scroll; }
-        main > .buffer > * { margin:5px 10px; }
-
-    main > .input {}
-        .input > input { width:100%; padding:10px; }

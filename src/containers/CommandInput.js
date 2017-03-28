@@ -28,6 +28,7 @@ export default class CommandInput extends React.Component {
     render() {
         return (
             <div className="input">
+                <div>$</div>
                 <input
                     type="text"
                     placeholder="command"
