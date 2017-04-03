@@ -5,7 +5,8 @@ import {
     PAUSE_SONG_ACTION,
     RESUME_SONG_ACTION,
     TEXT_BUFFER,
-    ADD_BUFFER_ACTION
+    ADD_BUFFER_ACTION,
+    CHANGE_VOLUME_ACTION
 } from "../constants";
 
 import Command from "../containers/Command/Command";
@@ -20,7 +21,8 @@ export default class Store {
         playing: false,
         ended: false,
         currentTime: 0,
-        duration: 0
+        duration: 0,
+        volume: 1
     };
 
     player = new Player(this.song, process.env.SOUNDCLOUD_TOKEN);
@@ -60,6 +62,12 @@ export default class Store {
         }
 
         if(action === ADD_BUFFER_ACTION) {
+            this.addBuffer(view, content);
+        }
+
+        if(action === CHANGE_VOLUME_ACTION) {
+            this.player.setVolume(+input);
+
             this.addBuffer(view, content);
         }
     }

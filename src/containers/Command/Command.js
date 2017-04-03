@@ -8,7 +8,8 @@ import {
     SONG_BUFFER,
     ERROR_BUFFER,
     TEXT_BUFFER,
-    ADD_BUFFER_ACTION
+    ADD_BUFFER_ACTION,
+    CHANGE_VOLUME_ACTION
 } from "../../constants";
 
 export default class Command {
@@ -42,6 +43,11 @@ export default class Command {
         view: TEXT_BUFFER,
         action: RESUME_SONG_ACTION,
         feed: "Resumed."
+    }, {
+        pattern: /^volume /i,
+        view: TEXT_BUFFER,
+        action: CHANGE_VOLUME_ACTION,
+        feed: "Volume changed."
     }];
 
     static parse() {

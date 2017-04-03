@@ -7,6 +7,10 @@ export default class Player {
         this.metadata = metadata;
         this.soundcloud_token = token;
 
+        this.player.addEventListener("volumechange", () => {
+            this.metadata.volume = this.player.volume;
+        });
+
         this.player.addEventListener("timeupdate", () => {
             this.metadata.currentTime = this.player.currentTime;
         });
@@ -29,6 +33,7 @@ export default class Player {
             this.metadata.playing = true;
         });
 
+        // @todo: handle errors
         this.player.addEventListener("emptied", () => {});
         this.player.addEventListener("error", () => {});
     }
@@ -46,6 +51,10 @@ export default class Player {
 
     play() {
         this.player.play();
+    }
+
+    setVolume(value) {
+        this.player.volume = value/100;
     }
 
     pause() {
