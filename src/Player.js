@@ -1,5 +1,7 @@
 export default class Player {
 
+    // @todo: store buffering informations from waiting/loadstart/canplay/canplaythrough events etc
+
     constructor(metadata, token) {
         this.player = new Audio();
         this.song = null;
