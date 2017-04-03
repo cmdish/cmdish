@@ -3,12 +3,8 @@ import { observable } from "mobx";
 import { observer, inject } from "mobx-react";
 
 @inject("store") @observer
-export default class CommandInput extends React.Component {
+export default class Input extends React.Component {
     @observable command = "";
-
-    constructor(...props) {
-        super(...props);
-    }
 
     handleChange = (e) => {
         this.command = e.target.value;
@@ -19,7 +15,7 @@ export default class CommandInput extends React.Component {
         const command = this.command.trim();
 
         if (command.length > 0 && e.which === 13) {
-            store.addCommand(command);
+            store.dispatchCommand(command);
 
             this.command = "";
         }

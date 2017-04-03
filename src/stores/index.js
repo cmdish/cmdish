@@ -1,5 +1,5 @@
-import store from "./Store";
+import Store from "./Store";
 
 export default {
-    store
+    store: new Store()
 };

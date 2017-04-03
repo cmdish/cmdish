@@ -2,7 +2,7 @@ import React from "react";
 import { observer, inject } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 
-import CommandInput from "./CommandInput";
+import Input from "./Command/Input";
 import StatusBar from "./StatusBar";
 import Buffer from "./Buffer";
 
@@ -14,16 +14,12 @@ SC.initialize({
 
 @inject("store") @observer
 export default class App extends React.Component {
-    constructor(...props) {
-        super(...props);
-    }
-
     render() {
         return (
             <main>
                 <StatusBar />
                 <Buffer />
-                <CommandInput />
+                <Input />
                 <DevTools />
             </main>
         );

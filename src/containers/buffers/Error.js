@@ -8,7 +8,7 @@ export default class Error extends React.Component {
 
         return (
             <p style={{ color: "red" }}>
-                { moment(inputTime).format("HH:ss") }: { content.text }
+                <span style={{ opacity: 0.5 }}>{ moment(inputTime).format("HH:mm:ss") }:</span> { content }
             </p>
         );
     }
