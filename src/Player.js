@@ -57,6 +57,16 @@ export default class Player {
         this.player.volume = value/100;
     }
 
+    setTime(input) {
+        let number = +input.replace("%", "");
+
+        if(input.match("%")) {
+            number = this.metadata.duration * number / 100;
+        }
+
+        this.player.currentTime = number;
+    }
+
     pause() {
         if (!this.player.paused) {
             this.player.pause();

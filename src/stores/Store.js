@@ -6,7 +6,8 @@ import {
     RESUME_SONG_ACTION,
     TEXT_BUFFER,
     ADD_BUFFER_ACTION,
-    CHANGE_VOLUME_ACTION
+    CHANGE_VOLUME_ACTION,
+    CHANGE_TIME_ACTION
 } from "../constants";
 
 import Command from "../containers/Command/Command";
@@ -67,6 +68,12 @@ export default class Store {
 
         if(action === CHANGE_VOLUME_ACTION) {
             this.player.setVolume(+input);
+
+            this.addBuffer(view, content);
+        }
+
+        if(action === CHANGE_TIME_ACTION) {
+            this.player.setTime(input);
 
             this.addBuffer(view, content);
         }

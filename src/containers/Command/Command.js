@@ -9,7 +9,8 @@ import {
     ERROR_BUFFER,
     TEXT_BUFFER,
     ADD_BUFFER_ACTION,
-    CHANGE_VOLUME_ACTION
+    CHANGE_VOLUME_ACTION,
+    CHANGE_TIME_ACTION
 } from "../../constants";
 
 export default class Command {
@@ -48,6 +49,11 @@ export default class Command {
         view: TEXT_BUFFER,
         action: CHANGE_VOLUME_ACTION,
         feed: "Volume changed."
+    }, {
+        pattern: /^time /i,
+        view: TEXT_BUFFER,
+        action: CHANGE_TIME_ACTION,
+        feed: "Time changed."
     }];
 
     static parse() {
