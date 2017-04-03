@@ -29,9 +29,8 @@ export default class Player {
             this.metadata.playing = true;
         });
 
-        this.player.addEventListener("emptied", () => {
-            // clear all metadata
-        });
+        this.player.addEventListener("emptied", () => {});
+        this.player.addEventListener("error", () => {});
     }
 
     set(song) {
@@ -39,10 +38,9 @@ export default class Player {
 
         this.song = song;
 
-        this.player.src = `${song.stream_url}?client_id=${this.soundcloud_token}`;
-
         this.metadata.name = song.title;
 
+        this.player.src = `${song.stream_url}?client_id=${this.soundcloud_token}`;
         this.player.load();
     }
 

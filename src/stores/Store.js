@@ -17,7 +17,6 @@ export default class Store {
 
     @observable song = {
         name: null,
-        paused: false,
         playing: false,
         ended: false,
         currentTime: 0,
